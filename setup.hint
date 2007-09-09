@@ -1,0 +1,4 @@
+category: Editors Gnome Publishing
+requires: cygwin GConf2 ORBit2 aiksaurus-gtk atk enchant gdk-pixbuf2 glib2 gnome-vfs2 gtk2-x11 gtkmathview libX11_6 libXft2 libbonobo2 libbonoboui2 libbz2_1 libfontconfig1 libfreetype26 libfribidi0 libgda2 libglade2 libgnome2 libgnomecanvas2 libgnomedb2 libgnomeprint22 libgnomeprintui22 libgnomeui2 libgoffice1 libgsf114 libgucharmap6 libiconv2 libintl8 libjpeg62 liblink-grammar4 libpng12 libpoppler1 libpopt0 libreadline6 librsvg2 libwmf027 libwpd08 libxml2 pango wv zlib
+sdesc: "GNOME word processor"
+ldesc: "Full-featured GNOME WYSIWYG word processor"
