@@ -5,46 +5,46 @@ similar to Microsoft Word. It is suitable for almost all word processing
 tasks.
 
 Runtime requirements:
-  cygwin-1.5.25-11
+  cygwin-1.5.25-15
   aiksaurus-gtk-1.2.1-1
-  atk-1.20.0-1
-  enchant-1.4.1-1
-  gdk-pixbuf2-2.12.9-1
-  glib2-2.14.6-1
+  atk-1.22.0-1
+  enchant-1.4.2-1
+  gdk-pixbuf2-2.12.11-1
+  glib2-2.16.4-1
   gnome-utils-2.20.1.1-1
-  gnome-vfs2-2.20.1-1
-  gtk2-x11-2.12.9-1
-  gtkmathview-0.7.8.1167-1
-  libX11_6-1.1.3-1
-  libXft2-2.1.12-1
-  libfontconfig1-2.3.2-2
-  libfreetype26-2.3.5-1
+  gnome-vfs2-2.22.0-1
+  gtk2-x11-2.12.11-1
+  libfontconfig1-2.6.0-1
+  libfreetype26-2.3.7-1
   libfribidi0-0.10.9-1
   libgda30-3.0.4-1
   libglade2-2.6.2-1
-  libgnome2-2.20.1.1-1
+  libgnome2-2.22.0-1
   libgnomedb30-3.0.0-2
   libgnomeprint22-2.18.4-1
   libgnomeprintui22-2.18.2-1
-  libgnomeui2-2.20.1.1-1
+  libgnomeui2-2.22.1-1
   libgoffice04-0.4.3-2
   libgsf114-1.14.8-1
-  libgucharmap6-1.10.1-1
+  libgtkmathview0-0.8.0-1
+  libgucharmap6-2.22.3-1
   libjpeg62-6b-12
   liblink-grammar4-4.2.5-1
   libots1-0.5.0-1
-  libpng12-1.2.27-1
+  libpng12-1.2.29-1
   libpopt0-1.14-1
   libpsiconv6-0.9.8-1
-  libreadline6-5.2.7-9
-  librsvg2-2.20.0-1
+  libreadline6-5.2.12-10
+  librsvg2-2.22.2-1
   libwmf027-0.2.8.4-4
   libwpd08-0.8.14-1
   libwpg01-0.1.2-1
   libwps01-0.1.2-1
+  libX11_6-1.1.3-1
+  libXft2-2.1.12-1
   libxml2-2.6.32-1
-  pango-1.18.4-1
-  poppler-0.6.3-1
+  pango-1.20.5-1
+  poppler-0.8.4-1
   wv-1.2.4-1
   zlib-1.2.3-2
 
@@ -53,13 +53,13 @@ Build requirements:
   autoconf2.5-2.61-1
   automake1.10-1.10.1-1
   binutils-20060817-1
-  cygport-0.3.9-1
+  cygport-0.3.12-1
   gawk-3.1.6-1
   gcc-core-3.4.4-3
   gcc-g++-3.4.4-3
   libtool-2.2.2-2
   make-3.81-1
-  pkg-config-0.21-1
+  pkg-config-0.23a-2
   sed-4.1.5-2
 
 Canonical website:
@@ -71,15 +71,15 @@ Canonical download:
 -------------------------------------------
 
 Build instructions:
-  unpack abiword-2.6.3-X-src.tar.bz2
+  unpack abiword-2.6.4-X-src.tar.bz2
     if you use setup to install this src package, it will be
 	 unpacked under /usr/src automatically
   cd /usr/src
-  cygport ./abiword-2.6.3-X.cygport all
+  cygport ./abiword-2.6.4-X.cygport all
 
 This will create:
-  /usr/src/abiword-2.6.3-X-src.tar.bz2
-  /usr/src/abiword-2.6.3-X.tar.bz2
+  /usr/src/abiword-2.6.4-X-src.tar.bz2
+  /usr/src/abiword-2.6.4-X.tar.bz2
 
 -------------------------------------------
 
@@ -695,16 +695,19 @@ Files included in the binary package:
   /usr/share/abiword-2.6/templates/normal.awt-zh_CN
   /usr/share/abiword-2.6/templates/normal.awt-zh_TW
   /usr/share/applications/abiword.desktop
-  /usr/share/doc/abiword-2.6.3/BUILD.TXT
-  /usr/share/doc/abiword-2.6.3/COPYRIGHT.TXT
-  /usr/share/doc/abiword-2.6.3/CREDITS.TXT
-  /usr/share/doc/abiword-2.6.3/README.TXT
+  /usr/share/doc/abiword-2.6.4/BUILD.TXT
+  /usr/share/doc/abiword-2.6.4/COPYRIGHT.TXT
+  /usr/share/doc/abiword-2.6.4/CREDITS.TXT
+  /usr/share/doc/abiword-2.6.4/README.TXT
   /usr/share/mime-info/abiword.keys
   /usr/share/pixmaps/abiword_48.png
 
 ------------------
 
 Port Notes:
+
+----- version 2.6.4-1 -----
+Version bump.
 
 ----- version 2.6.3-1 -----
 Version bump.
