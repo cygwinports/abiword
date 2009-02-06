@@ -9,26 +9,26 @@ Runtime requirements:
   libatk1.0_0-1.24.0-1
   libenchant1-1.4.2-2
   libfontconfig1-2.6.0-1
-  libfreetype26-2.3.7-1
+  libfreetype6-2.3.8-1
   libfribidi0-0.10.9-1
-  libgdk_pixbuf2.0_0-2.14.5-1
+  libgdk_pixbuf2.0_0-2.14.7-1
   libglade2.0_0-2.6.3-2
-  libglib2.0_0-2.18.3-1
+  libglib2.0_0-2.18.4-1
   libgnome2_0-2.24.1-1
   libgnomeprint2.2_0-2.18.5-1
   libgnomeprintui2.2_0-2.18.3-1
   libgnomeui2_0-2.24.0-1
   libgnomevfs2_0-2.24.0-1
   libgoffice0_4-0.4.3-3
-  libgsf1_114-1.14.10-1
-  libgtk2.0_0-2.14.5-1
-  libpango1.0_0-1.22.3-1
-  libpng12-1.2.33-1
+  libgsf1_114-1.14.11-1
+  libgtk2.0_0-2.14.7-1
+  libpango1.0_0-1.22.4-1
+  libpng12-1.2.34-1
   libpopt0-1.14-1
   libwv1.2_3-1.2.4-2
-  libX11_6-1.1.5-1
+  libX11_6-1.1.5-2
   libXft2-2.1.13-1
-  libxml2-2.7.2-1
+  libxml2-2.7.3-1
   zlib-1.2.3-2
 
 Build requirements:
@@ -54,16 +54,16 @@ Canonical download:
 -------------------------------------------
 
 Build instructions:
-  unpack abiword-2.6.5-X-src.tar.bz2
+  unpack abiword-2.6.6-X-src.tar.bz2
     if you use setup to install this src package, it will be
 	 unpacked under /usr/src automatically
   cd /usr/src
-  cygport ./abiword-2.6.5-X.cygport all
+  cygport ./abiword-2.6.6-X.cygport all
 
 This will create:
-  /usr/src/abiword-2.6.5-X-src.tar.bz2
-  /usr/src/abiword-2.6.5-X.tar.bz2
-  /usr/src/abiword-devel-2.6.5-X.tar.bz2
+  /usr/src/abiword-2.6.6-X-src.tar.bz2
+  /usr/src/abiword-2.6.6-X.tar.bz2
+  /usr/src/abiword-devel-2.6.6-X.tar.bz2
 
 -------------------------------------------
 
@@ -312,12 +312,12 @@ Files included in the binary package:
   /usr/share/abiword-2.6/templates/normal.awt-zh_CN
   /usr/share/abiword-2.6/templates/normal.awt-zh_TW
   /usr/share/applications/abiword.desktop
-  /usr/share/doc/abiword-2.6.5/BUILD.TXT
-  /usr/share/doc/abiword-2.6.5/COPYING
-  /usr/share/doc/abiword-2.6.5/COPYRIGHT.txt
-  /usr/share/doc/abiword-2.6.5/CREDITS.txt
-  /usr/share/doc/abiword-2.6.5/INSTALL
-  /usr/share/doc/abiword-2.6.5/README.TXT
+  /usr/share/doc/abiword-2.6.6/BUILD.TXT
+  /usr/share/doc/abiword-2.6.6/COPYING
+  /usr/share/doc/abiword-2.6.6/COPYRIGHT.txt
+  /usr/share/doc/abiword-2.6.6/CREDITS.txt
+  /usr/share/doc/abiword-2.6.6/INSTALL
+  /usr/share/doc/abiword-2.6.6/README.TXT
   /usr/share/mime-info/abiword.keys
   /usr/share/pixmaps/abiword_48.png
 
@@ -831,6 +831,9 @@ Files included in the binary package:
 ------------------
 
 Port Notes:
+
+----- version 2.6.6-1 -----
+Version bump.
 
 ----- version 2.6.5-1 -----
 Version bump.
