@@ -5,44 +5,46 @@ similar to Microsoft Word. It is suitable for almost all word processing
 tasks.
 
 Runtime requirements:
-  cygwin-1.5.25-15
-  libatk1.0_0-1.24.0-1
-  libenchant1-1.4.2-2
-  libfontconfig1-2.6.0-1
-  libfreetype6-2.3.8-1
-  libfribidi0-0.10.9-1
-  libgdk_pixbuf2.0_0-2.14.7-1
-  libglade2.0_0-2.6.3-2
-  libglib2.0_0-2.18.4-1
-  libgnome2_0-2.24.1-1
-  libgnomeprint2.2_0-2.18.5-1
-  libgnomeprintui2.2_0-2.18.3-1
-  libgnomeui2_0-2.24.0-1
-  libgnomevfs2_0-2.24.0-1
-  libgoffice0_4-0.4.3-3
-  libgsf1_114-1.14.11-1
-  libgtk2.0_0-2.14.7-1
-  libpango1.0_0-1.22.4-1
-  libpng12-1.2.34-1
-  libpopt0-1.14-1
-  libwv1.2_3-1.2.4-2
-  libX11_6-1.1.5-2
-  libXft2-2.1.13-1
-  libxml2-2.7.3-1
-  zlib-1.2.3-2
+  cygwin-1.7.0-45
+  libatk1.0_0-1.26.0-1
+  libenchant1-1.4.2-10
+  libfontconfig1-2.6.0-10
+  libfreetype6-2.3.9-1
+  libfribidi0-0.19.2-1
+  libgcc1-4.3.2-2
+  libgdk_pixbuf2.0_0-2.16.1-1
+  libglade2.0_0-2.6.4-1
+  libglib2.0_0-2.20.1-1
+  libgnome2_0-2.26.0-1
+  libgnomeprint2.2_0-2.18.6-1
+  libgnomeprintui2.2_0-2.18.4-1
+  libgnomeui2_0-2.24.1-1
+  libgnomevfs2_0-2.26.0-1
+  libgoffice0_4-0.4.3-10
+  libgsf1_114-1.14.12-1
+  libgtk2.0_0-2.16.1-1
+  libpango1.0_0-1.24.1-1
+  libpng12-1.2.35-1
+  libpopt0-1.6.4-4
+  libstdc++6-4.3.2-2
+  libwv1.2_3-1.2.4-10
+  libX11_6-1.2-10
+  libXft2-2.1.13-10
+  libxml2-2.7.3-10
+  zlib0-1.2.3-10
 
 Build requirements:
 (besides corresponding -devel packages)
-  autoconf2.5-2.63-1
-  automake1.10-1.10.1-2
+  autoconf2.5-2.63-10
+  automake1.10-1.10.1-10
   binutils-20080624-2
-  cygport-0.4.3-1
-  gawk-3.1.6-1
-  gcc-core-3.4.4-3
-  gcc-g++-3.4.4-3
-  libtool-2.2.6a-1
-  make-3.81-1
-  pkg-config-0.23a-2
+  cygport-0.9.6-1
+  gawk-3.1.6-2
+  gcc4-core-4.3.2-2
+  gcc4-g++-4.3.2-2
+  libtool-2.2.7a-12
+  make-3.81-2
+  pkg-config-0.23b-10
   sed-4.1.5-2
 
 Canonical website:
@@ -54,16 +56,16 @@ Canonical download:
 -------------------------------------------
 
 Build instructions:
-  unpack abiword-2.6.6-X-src.tar.bz2
+  unpack abiword-2.6.8-X-src.tar.bz2
     if you use setup to install this src package, it will be
 	 unpacked under /usr/src automatically
   cd /usr/src
-  cygport ./abiword-2.6.6-X.cygport all
+  cygport ./abiword-2.6.8-X.cygport all
 
 This will create:
-  /usr/src/abiword-2.6.6-X-src.tar.bz2
-  /usr/src/abiword-2.6.6-X.tar.bz2
-  /usr/src/abiword-devel-2.6.6-X.tar.bz2
+  /usr/src/abiword-2.6.8-X-src.tar.bz2
+  /usr/src/abiword-2.6.8-X.tar.bz2
+  /usr/src/abiword-devel-2.6.8-X.tar.bz2
 
 -------------------------------------------
 
@@ -312,12 +314,11 @@ Files included in the binary package:
   /usr/share/abiword-2.6/templates/normal.awt-zh_CN
   /usr/share/abiword-2.6/templates/normal.awt-zh_TW
   /usr/share/applications/abiword.desktop
-  /usr/share/doc/abiword-2.6.6/BUILD.TXT
-  /usr/share/doc/abiword-2.6.6/COPYING
-  /usr/share/doc/abiword-2.6.6/COPYRIGHT.txt
-  /usr/share/doc/abiword-2.6.6/CREDITS.txt
-  /usr/share/doc/abiword-2.6.6/INSTALL
-  /usr/share/doc/abiword-2.6.6/README.TXT
+  /usr/share/doc/abiword/BUILD.TXT
+  /usr/share/doc/abiword/COPYING
+  /usr/share/doc/abiword/COPYRIGHT.txt
+  /usr/share/doc/abiword/CREDITS.txt
+  /usr/share/doc/abiword/README.TXT
   /usr/share/mime-info/abiword.keys
   /usr/share/pixmaps/abiword_48.png
 
@@ -832,24 +833,8 @@ Files included in the binary package:
 
 Port Notes:
 
------ version 2.6.6-1 -----
-Version bump.
-
------ version 2.6.5-1 -----
-Version bump.
-Split out abiword-plugins, -docs, and -extras as upstream.
-
------ version 2.6.4-1 -----
-Version bump.
-
------ version 2.6.3-1 -----
-Version bump.
-
------ version 2.4.6-2 -----
-Rebuilt for poppler-0.6.
-
------ version 2.4.6-1 -----
-Initial release for Cygwin.
+----- version 2.6.8-1 -----
+Initial release for Cygwin 1.7.
 
 
 Cygwin port maintained by:
