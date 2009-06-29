@@ -1,5 +1,5 @@
 category: Editors Gnome Publishing
-requires: cygwin abiword libatk1.0-devel libenchant-devel libfontconfig-devel libfreetype-devel libfribidi-devel libgdk_pixbuf2.0-devel libglade2.0-devel libglib2.0-devel libgnome2-devel libgnomeprint2.2-devel libgnomeprintui2.2-devel libgnomeui2-devel libgnomevfs2-devel libgoffice0-devel libgsf1-devel libgtk2.0-devel libpango1.0-devel libpng12-devel popt libstdc++6-devel libwv-devel libX11-devel libXft-devel libxml2-devel zlib-devel
+requires: abiword libatk1.0-devel libenchant-devel libfontconfig-devel libfreetype-devel libfribidi-devel libgdk_pixbuf2.0-devel libglade2.0-devel libglib2.0-devel libgnome2-devel libgnomeprint2.2-devel libgnomeprintui2.2-devel libgnomeui2-devel libgnomevfs2-devel libgoffice0-devel libgsf1-devel libgtk2.0-devel libpango1.0-devel libpng12-devel popt libstdc++6-devel libwv-devel libX11-devel libXft-devel libxml2-devel zlib-devel
 external-source: abiword
 sdesc: "GNOME word processor (plugin development files)"
 ldesc: "AbiWord is a powerful, free and cross platform word processing 
