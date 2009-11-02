@@ -1,0 +1,47 @@
+DESCRIPTION="GNOME WYSIWYG word processor"
+HOMEPAGE="http://www.abisource.com/"
+SRC_URI="http://www.abisource.com/downloads/${PN}/${PV}/source/${P}.tar.gz"
+
+PATCH_URI="
+	2.8.0-dolt.patch
+	2.8.0-module-suffix.patch
+	2.8.0-no-undefined.patch
+	2.8.0-gdict.patch
+"
+
+PKG_NAMES="${PN} ${PN}-plugins lib${PN}${PV_MAJ_MIN} lib${PN}${PV_MAJ_MIN}-devel"
+abiword_CONTENTS="--exclude=abiword-2.8 etc/ usr/bin/abiword.exe usr/share/"
+abiword_plugins_CONTENTS="usr/lib/abiword-${PV_MAJ_MIN}/plugins/"
+libabiword2_8_CONTENTS="usr/bin/cygabiword-2.8.dll usr/share/abiword-2.8/"
+libabiword2_8_devel_CONTENTS="usr/include/ usr/lib/lib* usr/lib/pkgconfig/"
+
+CYGCONF_ARGS="
+	--disable-debug
+	--disable-static
+	--enable-clipart
+	--enable-plugins
+	--enable-templates
+	--with-gio
+	--without-gnomevfs
+	--with-goffice
+	--with-gucharmap
+	--with-libtidy
+"
+MAKEOPTS+=" icondir=/usr/share/pixmaps"
+
+src_compile() {
+	cd ${S}
+	cygautoreconf
+	cd ${B}
+	cygconf ## CYGCONF_ARGS defined above
+	cygmake -C src
+
+	# The collab and paint plugins cause a segfault on exit (double free?)
+	#
+	# FIXME: no easy way to turn off a small number of plugins
+	# without explicitly enabling all the rest
+	sed -i -r -e '/^PLUGINS =/ s/ (paint|collab) / /g' plugins/Makefile
+	cygmake -C plugins LIBS="\$(top_builddir)/src/libabiword-${PV_MAJ_MIN}.la"
+}
+
+DOCS="*.TXT"

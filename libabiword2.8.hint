@@ -1,0 +1,7 @@
+category: Editors Gnome Publishing
+requires: libatk1.0_0 libcairo2 libenchant1 libfontconfig1 libfribidi0 libgcc1 libgdk_pixbuf2.0_0 libglib2.0_0 libgoffice0.8_7 libgsf1_114 libgtk2.0_0 libgucharmap7 libjpeg7 libpango1.0_0 libpng12 librsvg2_2 libstdc++6 libwv1.2_4 libX11_6 libxml2 zlib0
+external-source: abiword
+sdesc: "GNOME word processor library (runtime)"
+ldesc: "AbiWord is a powerful, free and cross platform word processing 
+program similar to Microsoft Word. It is suitable for almost all word 
+processing tasks."

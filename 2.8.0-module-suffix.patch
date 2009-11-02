@@ -1,0 +1,15 @@
+--- origsrc/abiword-2.8.0/src/wp/ap/gtk/ap_UnixApp.cpp	2009-10-12 14:34:31.000000000 -0500
++++ src/abiword-2.8.0/src/wp/ap/gtk/ap_UnixApp.cpp	2009-10-28 19:11:48.743023900 -0500
+@@ -731,9 +731,10 @@ bool AP_UnixApp::canPasteFromClipboard(v
+ static bool is_so (const char *file) {
+ 
+ 	size_t len = strlen (file);
+-	if (len < (strlen(G_MODULE_SUFFIX) + 2)) // this is ".so" and at least one char for the filename
++	size_t ext = strlen ("."G_MODULE_SUFFIX);
++	if (len < (ext + 1)) // this is ".so" and at least one char for the filename
+ 		return false;
+-	const char *suffix = file+(len-3);
++	const char *suffix = file+(len-ext);
+ 	if(0 == strcmp (suffix, "."G_MODULE_SUFFIX))
+ 		return true;
+ 	return false;

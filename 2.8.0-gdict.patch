@@ -1,0 +1,16 @@
+--- origsrc/abiword-2.8.0/plugins/gdict/unix/GdictAbiPlugin.cpp	2008-05-01 04:43:35.000000000 -0500
++++ src/abiword-2.8.0/plugins/gdict/unix/GdictAbiPlugin.cpp	2009-10-28 19:25:09.650420500 -0500
+@@ -58,10 +58,9 @@ GDict_exec (const char * search)
+   if ( (pid = fork ()) == 0 )
+     {
+       // child
+-      const char *args[3];
+-      args[0] = "--noapplet"; // definitely needed for kde users, for example
+-      args[1] = search;
+-      args[2] = 0;
++      const char *args[2];
++      args[0] = search;
++      args[1] = 0;
+       
+       exit ( execvp ( "gnome-dictionary", (char **) args ) );
+       // TODO: be smarter with warnings and such

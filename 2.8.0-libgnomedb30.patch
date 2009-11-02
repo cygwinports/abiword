@@ -1,0 +1,78 @@
+FIXME: libgda/libgnomedb 3.0 is deprecated; needs porting to 4.2
+
+--- origsrc/abiword-2.8.0/plugin-configure.m4	2009-10-26 11:34:19.000000000 -0500
++++ src/abiword-2.8.0/plugin-configure.m4	2009-10-28 19:26:19.616542500 -0500
+@@ -742,7 +742,7 @@ AC_SUBST([KWORD_CFLAGS])
+ AC_SUBST([KWORD_LIBS])
+ 
+ 
+-gda_pkgs='libgda >= 1.2.0 libgnomedb >= 1.2.0'
++gda_pkgs='libgda-3.0 libgnomedb-extra-3.0'
+ gda_deps="no"
+ 
+ if test "$enable_gda" != ""; then
+--- origsrc/abiword-2.8.0/plugins/gda/plugin.m4	2008-05-19 09:06:19.000000000 -0500
++++ src/abiword-2.8.0/plugins/gda/plugin.m4	2009-10-28 19:26:04.718516500 -0500
+@@ -1,5 +1,5 @@
+ 
+-gda_pkgs='libgda >= 1.2.0 libgnomedb >= 1.2.0'
++gda_pkgs='libgda-3.0 libgnomedb-extra-3.0'
+ gda_deps="no"
+ 
+ if test "$enable_gda" != ""; then
+--- origsrc/abiword-2.8.0/plugins/gda/unix/AbiGDA.cpp	2008-05-15 08:17:04.000000000 -0500
++++ src/abiword-2.8.0/plugins/gda/unix/AbiGDA.cpp	2009-10-30 13:47:04.590024500 -0500
+@@ -51,7 +51,7 @@
+ 
+ #include <gtk/gtk.h>
+ #include <libgda/libgda.h>
+-#include <libgnomedb/gnome-db-editor.h>
++#include <libgnomedb-extra/gnome-db-editor.h>
+ #include <libgnomedb/gnome-db-login.h>
+ #include <libgnomedb/gnome-db-util.h>
+ 
+@@ -196,9 +196,9 @@ private:
+ 		m_row++; m_col = 0;
+ 	}
+ 
+-	void addCell(const GdaValue *value)
++	void addCell(const GValue *value)
+ 	{
+-		gchar * str = gda_value_stringify (const_cast<GdaValue*>(value));	       
++		gchar * str = gda_value_stringify (const_cast<GValue*>(value));	       
+ 		addCell (str);
+ 		g_free (str);
+ 	}       	
+@@ -276,6 +276,7 @@ gda_ok_pressed (GtkWidget * login, GtkWi
+ 	GdaConnection* cnc;
+ 	GdaDataModel*  recset;
+ 	GdaCommand*    cmd;
++	GError*        error;
+ 
+ 	dsn_name  = gnome_db_login_get_dsn (GNOME_DB_LOGIN(login));
+ 	user_name = gnome_db_login_get_username (GNOME_DB_LOGIN(login));
+@@ -285,13 +286,13 @@ gda_ok_pressed (GtkWidget * login, GtkWi
+ 	sql = editable_txt;
+ 	g_free (editable_txt);
+ 	
+-	cnc = gda_client_open_connection (connection_pool, dsn_name.utf8_str(), user_name.utf8_str(), password.utf8_str(), GDA_CONNECTION_OPTIONS_READ_ONLY);
++	cnc = gda_client_open_connection (connection_pool, dsn_name.utf8_str(), user_name.utf8_str(), password.utf8_str(), GDA_CONNECTION_OPTIONS_READ_ONLY, &error);
+ 	if (!GDA_IS_CONNECTION (cnc))
+ 		return false;
+ 	
+ 	/* execute command */
+ 	cmd = gda_command_new (sql.utf8_str(), GDA_COMMAND_TYPE_SQL, (GdaCommandOptions)0);
+-	recset = gda_connection_execute_single_command (cnc, cmd, NULL);
++	recset = gda_connection_execute_select_command (cnc, cmd, NULL, &error);
+ 	gda_command_free (cmd);
+ 	
+ 	if (recset == NULL || !GDA_IS_DATA_MODEL (recset))
+@@ -369,7 +370,7 @@ GDA_viewDataSources(AV_View* v, EV_EditM
+ 	char *argv[2];
+ 
+ 	/* run gnome-database-properties config tool */
+-	argv[0] = (char *) "gnome-database-properties";
++	argv[0] = (char *) "gnome-database-properties-3.0";
+ 	argv[1] = NULL;
+ 
+ 	return g_spawn_async (NULL, argv, NULL, G_SPAWN_SEARCH_PATH,
