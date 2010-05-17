@@ -9,11 +9,10 @@ PATCH_URI="
 	2.8.0-gdict.patch
 "
 
-PKG_NAMES="${PN} ${PN}-plugins lib${PN}${PV_MAJ_MIN} lib${PN}${PV_MAJ_MIN}-devel"
-abiword_CONTENTS="--exclude=abiword-2.8 etc/ usr/bin/abiword.exe usr/share/"
+PKG_NAMES="${PN} ${PN}-devel ${PN}-plugins"
+abiword_CONTENTS="usr/bin/ usr/share/"
+abiword_devel_CONTENTS="usr/include/ usr/lib/lib* usr/lib/pkgconfig/"
 abiword_plugins_CONTENTS="usr/lib/abiword-${PV_MAJ_MIN}/plugins/"
-libabiword2_8_CONTENTS="usr/bin/cygabiword-2.8.dll usr/share/abiword-2.8/"
-libabiword2_8_devel_CONTENTS="usr/include/ usr/lib/lib* usr/lib/pkgconfig/"
 
 CYGCONF_ARGS="
 	--disable-debug
