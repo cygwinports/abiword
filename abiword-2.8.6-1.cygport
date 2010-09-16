@@ -30,9 +30,9 @@ MAKEOPTS+=" icondir=/usr/share/pixmaps"
 
 src_compile() {
 	cd ${S}
-	cygautoreconf
+#	cygautoreconf
 	cd ${B}
-	cygconf ## CYGCONF_ARGS defined above
+#	cygconf ## CYGCONF_ARGS defined above
 	cygmake -C src
 
 	# The collab and paint plugins cause a segfault on exit (double free?)
