@@ -7,6 +7,7 @@ PATCH_URI="
 	2.8.0-module-suffix.patch
 	2.8.0-no-undefined.patch
 	2.8.0-gdict.patch
+	2.8.6-libwpd09.patch
 "
 
 PKG_NAMES="${PN} ${PN}-devel ${PN}-plugins"
@@ -30,16 +31,16 @@ MAKEOPTS+=" icondir=/usr/share/pixmaps"
 
 src_compile() {
 	cd ${S}
-#	cygautoreconf
+	cygautoreconf
 	cd ${B}
-#	cygconf ## CYGCONF_ARGS defined above
+	cygconf ## CYGCONF_ARGS defined above
 	cygmake -C src
 
 	# The collab and paint plugins cause a segfault on exit (double free?)
 	#
 	# FIXME: no easy way to turn off a small number of plugins
 	# without explicitly enabling all the rest
-	sed -i -r -e '/^PLUGINS =/ s/ (paint|collab) / /g' plugins/Makefile
+#	sed -i -r -e '/^PLUGINS =/ s/ (paint|collab) / /g' plugins/Makefile
 	cygmake -C plugins LIBS="\$(top_builddir)/src/libabiword-${PV_MAJ_MIN}.la"
 }
 

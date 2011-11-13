@@ -1,5 +1,5 @@
 category: Editors Gnome Publishing
-requires: abiword gnome-utils libAiksaurusGTK1.2_0 libgtkmathview0 liblink-grammar4 libots1_0 libpsiconv6 libreadline7 libtidy0_99_0 libwmf027 libwpd0.8_8 libwpg0.1_1 libwps0.1_1 libxslt
+requires: abiword gnome-utils libAiksaurusGTK1.2_0 libdbus-glib_1_2 libdbus1_3 libgtkmathview0 liblink-grammar4 libloudmouth1_0 libots1_0 libpsiconv6 libreadline7 libtidy0_99_0 libwmf027 libwpd0.9_9 libwpg0.2_2 libwps0.2_2 libxslt
 external-source: abiword
 sdesc: "GNOME word processor (plugins)"
 ldesc: "AbiWord is a powerful, free and cross platform word processing 
