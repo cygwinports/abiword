@@ -3,17 +3,17 @@ HOMEPAGE="http://www.abisource.com/"
 SRC_URI="http://www.abisource.com/downloads/${PN}/${PV}/source/${P}.tar.gz"
 
 PATCH_URI="
-	2.8.0-dolt.patch
 	2.8.0-module-suffix.patch
-	2.8.0-no-undefined.patch
 	2.8.0-gdict.patch
-	2.8.6-libwpd09.patch
+	2.9.3-ldflags.patch
+	2.9.3-telepathy-build.patch
 "
 
 PKG_NAMES="${PN} ${PN}-devel ${PN}-plugins"
-abiword_CONTENTS="etc/ usr/bin/ usr/share/"
+abiword_CONTENTS="etc/ usr/bin/ usr/share/abiword* usr/share/applications/
+                  usr/share/doc/ usr/share/man/ usr/share/pixmaps/"
 abiword_devel_CONTENTS="usr/include/ usr/lib/lib* usr/lib/pkgconfig/"
-abiword_plugins_CONTENTS="usr/lib/abiword-${PV_MAJ_MIN}/plugins/"
+abiword_plugins_CONTENTS="usr/lib/abiword-${PV_MAJ_MIN}/plugins/ usr/share/dbus-1/ usr/share/telepathy/"
 
 CYGCONF_ARGS="
 	--disable-debug
@@ -23,9 +23,8 @@ CYGCONF_ARGS="
 	--enable-templates
 	--with-gio
 	--without-gnomevfs
-	--with-goffice
-	--with-gucharmap
 	--with-libtidy
+	--disable-aiksaurus
 "
 MAKEOPTS+=" icondir=/usr/share/pixmaps"
 
@@ -34,14 +33,11 @@ src_compile() {
 	cygautoreconf
 	cd ${B}
 	cygconf ## CYGCONF_ARGS defined above
+	cygmake -C goffice-bits
 	cygmake -C src
-
-	# The collab and paint plugins cause a segfault on exit (double free?)
-	#
-	# FIXME: no easy way to turn off a small number of plugins
-	# without explicitly enabling all the rest
-#	sed -i -r -e '/^PLUGINS =/ s/ (paint|collab) / /g' plugins/Makefile
 	cygmake -C plugins LIBS="\$(top_builddir)/src/libabiword-${PV_MAJ_MIN}.la"
 }
 
 DOCS="*.TXT"
+
+KEEP_LA_FILES="none"

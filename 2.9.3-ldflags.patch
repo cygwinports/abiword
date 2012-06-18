@@ -1,0 +1,26 @@
+--- origsrc/abiword-2.9.3/src/Makefile.am	2012-02-22 14:59:41.000000000 -0600
++++ src/abiword-2.9.3/src/Makefile.am	2012-06-17 22:13:50.939901000 -0500
+@@ -49,9 +49,9 @@ libabiword_@ABIWORD_SERIES@_la_CPPFLAGS
+ libabiword_@ABIWORD_SERIES@_la_LDFLAGS = \
+ 	$(DEPS_LIBS) \
+ 	$(CHAMPLAIN_LIBS) \
+-	-Wl, --no-undefined \
++	-no-undefined \
+ 	-avoid-version \
+-	-Wl, --export-dynamic
++	-export-dynamic
+ 
+ 
+ if TOOLKIT_COCOA
+@@ -115,9 +115,9 @@ AbiWord_CPPFLAGS = \
+ 	$(libabiword_@ABIWORD_SERIES@_la_CPPFLAGS)
+ 
+ AbiWord_LDFLAGS = \
+-	-Wl, --no-undefined \
++	-no-undefined \
+ 	-avoid-version \
+-	-Wl, --export-dynamic \
++	-export-dynamic \
+ 	-headerpad_max_install_names 
+ 
+ AbiWord_LDADD = \
