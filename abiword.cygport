@@ -1,4 +1,11 @@
-DESCRIPTION="GNOME WYSIWYG word processor"
+NAME="abiword"
+VERSION=2.9.3
+RELEASE=2
+CATEGORY="Editors Gnome Publishing"
+SUMMARY="GNOME word processor"
+DESCRIPTION="AbiWord is a powerful, free and cross platform word processing
+program similar to Microsoft Word. It is suitable for almost all word
+processing tasks."
 HOMEPAGE="http://www.abisource.com/"
 SRC_URI="http://www.abisource.com/downloads/${PN}/${PV}/source/${P}.tar.gz"
 
@@ -12,19 +19,20 @@ PATCH_URI="
 PKG_NAMES="${PN} ${PN}-devel ${PN}-plugins"
 abiword_CONTENTS="etc/ usr/bin/ usr/share/abiword* usr/share/applications/
                   usr/share/doc/ usr/share/man/ usr/share/pixmaps/"
+abiword_devel_SUMMARY="${SUMMARY} library (development)"
 abiword_devel_CONTENTS="usr/include/ usr/lib/lib* usr/lib/pkgconfig/"
+abiword_plugins_SUMMARY="${SUMMARY} (plugins)"
+abiword_plugins_REQUIRES="gnome-dictionary"
 abiword_plugins_CONTENTS="usr/lib/abiword-${PV_MAJ_MIN}/plugins/ usr/share/dbus-1/ usr/share/telepathy/"
 
 CYGCONF_ARGS="
 	--disable-debug
-	--disable-static
 	--enable-clipart
 	--enable-plugins
 	--enable-templates
 	--with-gio
 	--without-gnomevfs
 	--with-libtidy
-	--disable-aiksaurus
 "
 MAKEOPTS+=" icondir=/usr/share/pixmaps"
 
@@ -35,7 +43,7 @@ src_compile() {
 	cygconf ## CYGCONF_ARGS defined above
 	cygmake -C goffice-bits
 	cygmake -C src
-	cygmake -C plugins LIBS="\$(top_builddir)/src/libabiword-${PV_MAJ_MIN}.la"
+	cygmake -C plugins LIBS="\$(top_builddir)/src/libabiword-${PV_MAJ_MIN}.la -lstdc++"
 }
 
 DOCS="*.TXT"
