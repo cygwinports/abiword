@@ -1,30 +1,36 @@
+inherit python
+
 NAME="abiword"
-VERSION=2.9.4
+VERSION=3.0.0
 RELEASE=1
-CATEGORY="Editors Gnome Publishing"
+CATEGORY="Editors Publishing"
 SUMMARY="GNOME word processor"
 DESCRIPTION="AbiWord is a powerful, free and cross platform word processing
 program similar to Microsoft Word. It is suitable for almost all word
 processing tasks."
 HOMEPAGE="http://www.abisource.com/"
-SRC_URI="http://www.abisource.com/downloads/${PN}/${PV}/source/${P}.tar.gz"
+SRC_URI="http://www.abisource.com/downloads/abiword/${VERSION}/source/abiword-${VERSION}.tar.gz"
 
 PATCH_URI="
 	2.8.0-module-suffix.patch
 	2.8.0-gdict.patch
-	2.9.3-telepathy-build.patch
 	2.9.4-eds36.patch
+	3.0.0-goffice-link.patch
 "
 
-PKG_NAMES="${PN} ${PN}-plugins lib${PN}2.9 lib${PN}2.9-devel girepository-Abi2.9"
+PKG_NAMES="${NAME} ${NAME}-plugins lib${NAME}3.0 lib${NAME}3.0-devel girepository-Abi3.0"
 abiword_CONTENTS="etc/ usr/bin/*.exe usr/share/applications/
                   usr/share/doc/ usr/share/man/ usr/share/pixmaps/"
-libabiword2_9_SUMMARY="${SUMMARY} library (runtime)"
-libabiword2_9_CONTENTS="usr/bin/cygabiword-2.9.dll usr/share/abiword-2.9/"
-libabiword2_9_devel_SUMMARY="${SUMMARY} library (development)"
-libabiword2_9_devel_CONTENTS="usr/include/ usr/lib/lib* usr/lib/pkgconfig/"
-girepository_Abi2_9_SUMMARY="${SUMMARY} library (GObject Introspection)"
-girepository_Abi2_9_CONTENTS="usr/*/gir*/Abi-2.9.*"
+libabiword3_0_CATEGORY="Libs"
+libabiword3_0_SUMMARY="${SUMMARY} library (runtime)"
+libabiword3_0_CONTENTS="usr/bin/cygabiword-3.0.dll usr/share/abiword-3.0/"
+libabiword3_0_devel_CATEGORY="Libs"
+libabiword3_0_devel_SUMMARY="${SUMMARY} library (development)"
+libabiword3_0_devel_CONTENTS="usr/include/ usr/lib/lib* usr/lib/pkgconfig/"
+girepository_Abi3_0_CATEGORY="Libs"
+girepository_Abi3_0_SUMMARY="${SUMMARY} library (GObject Introspection)"
+girepository_Abi3_0_OBSOLETES="girepository-Abi2.9"
+girepository_Abi3_0_CONTENTS="usr/*/gir*/Abi-3.0.* ${PYTHON_SITELIB#/}/gi/"
 abiword_plugins_SUMMARY="${SUMMARY} (plugins)"
 abiword_plugins_REQUIRES="gnome-dictionary"
 abiword_plugins_CONTENTS="usr/lib/abiword-${PV_MAJ_MIN}/plugins/ usr/share/dbus-1/ usr/share/telepathy/"
