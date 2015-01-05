@@ -1,7 +1,7 @@
 inherit python
 
 NAME="abiword"
-VERSION=3.0.0
+VERSION=3.0.1
 RELEASE=1
 CATEGORY="Editors Publishing"
 SUMMARY="GNOME word processor"
@@ -14,13 +14,12 @@ SRC_URI="http://www.abisource.com/downloads/abiword/${VERSION}/source/abiword-${
 PATCH_URI="
 	2.8.0-module-suffix.patch
 	2.8.0-gdict.patch
-	2.9.4-eds36.patch
 	3.0.0-goffice-link.patch
 "
 
 PKG_NAMES="${NAME} ${NAME}-plugins lib${NAME}3.0 lib${NAME}3.0-devel girepository-Abi3.0"
 abiword_CONTENTS="etc/ usr/bin/*.exe usr/share/applications/
-                  usr/share/doc/ usr/share/man/ usr/share/pixmaps/"
+                  usr/share/doc/ usr/share/icons/ usr/share/man/"
 libabiword3_0_CATEGORY="Libs"
 libabiword3_0_SUMMARY="${SUMMARY} library (runtime)"
 libabiword3_0_CONTENTS="usr/bin/cygabiword-3.0.dll usr/share/abiword-3.0/"
@@ -48,7 +47,6 @@ CYGCONF_ARGS="
 	--with-goffice
 	--with-libtidy
 "
-MAKEOPTS+=" icondir=/usr/share/pixmaps"
 
 src_compile() {
 	cd ${S}
