@@ -2,7 +2,7 @@ inherit python
 
 NAME="abiword"
 VERSION=3.0.1
-RELEASE=1
+RELEASE=2
 CATEGORY="Editors Publishing"
 SUMMARY="GNOME word processor"
 DESCRIPTION="AbiWord is a powerful, free and cross platform word processing
@@ -12,9 +12,14 @@ HOMEPAGE="http://www.abisource.com/"
 SRC_URI="http://www.abisource.com/downloads/abiword/${VERSION}/source/abiword-${VERSION}.tar.gz"
 
 PATCH_URI="
+	http://pkgs.fedoraproject.org/cgit/abiword.git/plain/abiword-2.8.3-desktop.patch
+	http://pkgs.fedoraproject.org/cgit/abiword.git/plain/abiword-2.6.0-boolean.patch
+	http://pkgs.fedoraproject.org/cgit/abiword.git/plain/abiword-3.0.0-librevenge.patch
 	2.8.0-module-suffix.patch
 	2.8.0-gdict.patch
-	3.0.0-goffice-link.patch
+	3.0.1-librevenge-part2.patch
+	3.0.1-parallel-make.patch
+	3.0.1-plugins-link-cxx.patch
 "
 
 PKG_NAMES="${NAME} ${NAME}-plugins lib${NAME}3.0 lib${NAME}3.0-devel girepository-Abi3.0"
@@ -34,10 +39,8 @@ abiword_plugins_SUMMARY="${SUMMARY} (plugins)"
 abiword_plugins_REQUIRES="gnome-dictionary"
 abiword_plugins_CONTENTS="usr/lib/abiword-${PV_MAJ_MIN}/plugins/ usr/share/dbus-1/ usr/share/telepathy/"
 
-# aiksaurus: aiksaurus-gtk is gtk2 only
 CYGCONF_ARGS="
 	--disable-debug
-	--disable-aiksaurus
 	--enable-clipart
 	--enable-introspection
 	--enable-plugins

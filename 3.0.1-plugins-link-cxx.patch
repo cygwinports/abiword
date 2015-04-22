@@ -1,0 +1,30 @@
+--- origsrc/abiword-3.0.1/plugins/goffice/Makefile.am	2015-04-21 18:31:07.732200000 -0500
++++ src/abiword-3.0.1/plugins/goffice/Makefile.am	2015-04-21 17:31:01.516268700 -0500
+@@ -13,7 +13,7 @@ goffice_la_LDFLAGS = \
+ 	-module \
+ 	-no-undefined
+ 
+-goffice_la_SOURCES = 
++goffice_la_SOURCES = dummy.cc
+ 
+ EXTRA_DIST = \
+ 	plugin.m4
+--- origsrc/abiword-3.0.1/plugins/goffice/dummy.cc	1969-12-31 18:00:00.000000000 -0600
++++ src/abiword-3.0.1/plugins/goffice/dummy.cc	2015-04-21 17:31:01.519269100 -0500
+@@ -0,0 +1 @@
++/* This exists only to force C++ linkage */
+--- origsrc/abiword-3.0.1/plugins/psion/Makefile.am	2011-11-15 15:25:46.000000000 -0600
++++ src/abiword-3.0.1/plugins/psion/Makefile.am	2015-04-21 18:28:38.140704300 -0500
+@@ -13,7 +13,7 @@ psion_la_LDFLAGS = \
+ 	-module \
+ 	-no-undefined
+ 
+-psion_la_SOURCES = 
++psion_la_SOURCES = dummy.cc
+ 
+ EXTRA_DIST = \
+ 	plugin.m4
+--- origsrc/abiword-3.0.1/plugins/psion/dummy.cc	1969-12-31 18:00:00.000000000 -0600
++++ src/abiword-3.0.1/plugins/psion/dummy.cc	2015-04-21 18:28:31.021800300 -0500
+@@ -0,0 +1 @@
++/* This exists only to force C++ linkage */
