@@ -2,7 +2,7 @@ inherit python
 
 NAME="abiword"
 VERSION=3.0.1
-RELEASE=2
+RELEASE=3
 CATEGORY="Editors Publishing"
 SUMMARY="GNOME word processor"
 DESCRIPTION="AbiWord is a powerful, free and cross platform word processing
