@@ -1,0 +1,15 @@
+This is only used by the aiksaurus plugin.
+
+Besides, with nothing to define LT_RELEASE, the result is the nonsensical
+cygAiksaurusGtk3--export-dynamic.dll.
+
+--- origsrc/abiword-3.0.1/plugins/aiksaurus/aiksaurusgtk3/Makefile.am	2014-03-07 20:55:42.000000000 -0600
++++ src/abiword-3.0.1/plugins/aiksaurus/aiksaurusgtk3/Makefile.am	2015-05-14 17:19:05.656028000 -0500
+@@ -1,6 +1,6 @@
+ AM_CXXFLAGS = $(AIKSAURUS_CFLAGS) -Wall -I../.. -I$(top_srcdir)/base
+ 
+-lib_LTLIBRARIES = libAiksaurusGtk3.la
++noinst_LTLIBRARIES = libAiksaurusGtk3.la
+ 
+ libAiksaurusGtk3_la_LDFLAGS = -no-undefined -release $(LT_RELEASE) -export-dynamic
+ 

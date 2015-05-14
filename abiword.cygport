@@ -20,6 +20,7 @@ PATCH_URI="
 	3.0.1-librevenge-part2.patch
 	3.0.1-parallel-make.patch
 	3.0.1-plugins-link-cxx.patch
+	3.0.1-aiksaurusgtk3-noinst.patch
 "
 
 PKG_NAMES="${NAME} ${NAME}-plugins lib${NAME}3.0 lib${NAME}3.0-devel girepository-Abi3.0"
