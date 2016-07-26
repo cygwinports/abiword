@@ -2,7 +2,7 @@ inherit python
 
 NAME="abiword"
 VERSION=3.0.1
-RELEASE=5
+RELEASE=6
 CATEGORY="Editors Publishing"
 SUMMARY="GNOME word processor"
 DESCRIPTION="AbiWord is a powerful, free and cross platform word processing
@@ -16,9 +16,10 @@ PATCH_URI="
 	http://pkgs.fedoraproject.org/cgit/abiword.git/plain/abiword-2.6.0-boolean.patch
 	http://pkgs.fedoraproject.org/cgit/abiword.git/plain/abiword-3.0.0-librevenge.patch
 	http://pkgs.fedoraproject.org/cgit/abiword.git/plain/abiword-3.0.0-libwp.patch
+	http://pkgs.fedoraproject.org/cgit/abiword.git/plain/abiword-3.0.1-libwps-0.4.patch
+	http://pkgs.fedoraproject.org/cgit/abiword.git/plain/abiword-3.0.1-parallel-make.patch
 	2.8.0-module-suffix.patch
 	2.8.0-gdict.patch
-	3.0.1-parallel-make.patch
 	3.0.1-plugins-link-cxx.patch
 	3.0.1-aiksaurusgtk3-noinst.patch
 "
