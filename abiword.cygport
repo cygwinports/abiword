@@ -1,8 +1,8 @@
-inherit python
+inherit python python3
 
 NAME="abiword"
-VERSION=3.0.1
-RELEASE=6
+VERSION=3.0.2
+RELEASE=1
 CATEGORY="Editors Publishing"
 SUMMARY="GNOME word processor"
 DESCRIPTION="AbiWord is a powerful, free and cross platform word processing
@@ -17,7 +17,6 @@ PATCH_URI="
 	http://pkgs.fedoraproject.org/cgit/abiword.git/plain/abiword-3.0.0-librevenge.patch
 	http://pkgs.fedoraproject.org/cgit/abiword.git/plain/abiword-3.0.0-libwp.patch
 	http://pkgs.fedoraproject.org/cgit/abiword.git/plain/abiword-3.0.1-libwps-0.4.patch
-	http://pkgs.fedoraproject.org/cgit/abiword.git/plain/abiword-3.0.1-parallel-make.patch
 	2.8.0-module-suffix.patch
 	2.8.0-gdict.patch
 	3.0.1-plugins-link-cxx.patch
@@ -36,11 +35,12 @@ libabiword3_0_devel_CONTENTS="usr/include/ usr/lib/lib* usr/lib/pkgconfig/"
 girepository_Abi3_0_CATEGORY="Libs"
 girepository_Abi3_0_SUMMARY="${SUMMARY} library (GObject Introspection)"
 girepository_Abi3_0_OBSOLETES="girepository-Abi2.9"
-girepository_Abi3_0_CONTENTS="usr/*/gir*/Abi-3.0.* ${PYTHON_SITELIB#/}/gi/"
+girepository_Abi3_0_CONTENTS="usr/*/gir*/Abi-3.0.* ${PYTHON_SITELIB#/}/gi/ ${PYTHON3_SITELIB#/}/gi/"
 abiword_plugins_SUMMARY="${SUMMARY} (plugins)"
 abiword_plugins_REQUIRES="gnome-dictionary"
 abiword_plugins_CONTENTS="usr/lib/abiword-${PV_MAJ_MIN}/plugins/ usr/share/dbus-1/ usr/share/telepathy/"
 
+CXXFLAGS+=" -std=gnu++11"
 CYGCONF_ARGS="
 	--disable-debug
 	--enable-clipart
@@ -60,6 +60,15 @@ src_compile() {
 	cygconf ## CYGCONF_ARGS defined above
 	cygmake -C src
 	cygmake -C plugins LIBS="\$(top_builddir)/src/libabiword-${PV_MAJ_MIN}.la -lstdc++"
+}
+
+src_install() {
+	cd ${B}
+	cyginstall
+
+	insinto $(${PYTHON3} -c "import gi; print(gi._overridesdir)")
+	doins ${S}/src/gi-overrides/Abi.py
+	python3_optimize
 }
 
 DOCS="*.TXT"
