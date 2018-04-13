@@ -2,7 +2,7 @@ inherit python2 python3
 
 NAME="abiword"
 VERSION=3.0.2
-RELEASE=2
+RELEASE=3
 CATEGORY="Editors Publishing"
 SUMMARY="GNOME word processor"
 DESCRIPTION="AbiWord is a powerful, free and cross platform word processing
@@ -12,12 +12,12 @@ HOMEPAGE="http://www.abisource.com/"
 SRC_URI="http://www.abisource.com/downloads/abiword/${VERSION}/source/abiword-${VERSION}.tar.gz"
 
 PATCH_URI="
-	http://pkgs.fedoraproject.org/cgit/abiword.git/plain/abiword-2.8.3-desktop.patch
-	http://pkgs.fedoraproject.org/cgit/abiword.git/plain/abiword-2.6.0-boolean.patch
-	http://pkgs.fedoraproject.org/cgit/abiword.git/plain/abiword-3.0.0-librevenge.patch
-	http://pkgs.fedoraproject.org/cgit/abiword.git/plain/abiword-3.0.0-libwp.patch
-	http://pkgs.fedoraproject.org/cgit/abiword.git/plain/abiword-3.0.1-libwps-0.4.patch
-	http://pkgs.fedoraproject.org/cgit/abiword.git/plain/abiword-3.0.2-fix-black-drawing-regression.patch
+	http://src.fedoraproject.org/cgit/rpms/abiword.git/plain/abiword-2.8.3-desktop.patch
+	http://src.fedoraproject.org/cgit/rpms/abiword.git/plain/abiword-2.6.0-boolean.patch
+	http://src.fedoraproject.org/cgit/rpms/abiword.git/plain/abiword-3.0.0-librevenge.patch
+	http://src.fedoraproject.org/cgit/rpms/abiword.git/plain/abiword-3.0.0-libwp.patch
+	http://src.fedoraproject.org/cgit/rpms/abiword.git/plain/abiword-3.0.1-libwps-0.4.patch
+	http://src.fedoraproject.org/cgit/rpms/abiword.git/plain/abiword-3.0.2-fix-black-drawing-regression.patch
 	2.8.0-module-suffix.patch
 	2.8.0-gdict.patch
 	3.0.1-plugins-link-cxx.patch
@@ -72,5 +72,3 @@ src_install() {
 }
 
 DOCS="*.TXT"
-
-KEEP_LA_FILES="none"
